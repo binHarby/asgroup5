@@ -15,7 +15,7 @@ with open("world.csv","r",newline='',encoding="utf8") as csvfile:
             geoid.append(str(row['geonameid']))
 
 with open("dataNew.csv","w+",newline='',encoding="utf8") as csvfile:
-    fildnames=["City","Country","Country ID","Test Center","Free Slots","Center img","Recovered","Infected"]
+    fildnames=["City","Country","Country ID","Test Center","Free Slots","Center img","Recovered","Infected","Deaths","Vaccinations","News"]
     writer = csv.DictWriter(csvfile,fieldnames=fildnames)
     writer.writeheader()
     times=["Noon","Morning","Night"]
@@ -26,10 +26,14 @@ with open("dataNew.csv","w+",newline='',encoding="utf8") as csvfile:
         for j in range(1,3):
             free=times[(-1)*(randint(0,3)):]
             if not free:
-                 writer.writerow({"City":citys[i],"Country":countries[i],"Country ID":geoid[i],"Test Center":"Center"+str(j),"Free Slots":str("None"),"Center img":"https://post.psychcentral.com/wp-content/uploads/2020/08/covid_testing_center-1200x628-facebook-1200x628.jpg","Recovered":str(randint(10,50000)),"Infected":randint(50000,8090000)})
+                 writer.writerow({"City":citys[i],"Country":countries[i],"Country ID":geoid[i],"Test Center":"Center"+str(j),"Free Slots":str("None"),"Center img":"https://drive.google.com/file/d/1ArwjMghyjgEQVnoWtKAG_oHnuQRQE30H/view?usp=sharing"
+                 ,"Recovered":str(randint(10,50000)),"Infected":str(randint(50000,8090000)),"Deaths":str(randint(50,8000)),"Vaccinations":str(randint(90000,8090000))
+                 ,"News":"https://www.healthline.com/health-news/how-covid-19-surge-is-related-to-a-black-fungus-outbreak"})
             else:
                 for ftm in free:
-                    writer.writerow({"City":citys[i],"Country":countries[i],"Country ID":geoid[i],"Test Center":"Center"+str(j),"Free Slots":str(ftm),"Center img":"https://post.psychcentral.com/wp-content/uploads/2020/08/covid_testing_center-1200x628-facebook-1200x628.jpg","Recovered":str(randint(10,50000)),"Infected":str(randint(50000,8090000))})
+                    writer.writerow({"City":citys[i],"Country":countries[i],"Country ID":geoid[i],"Test Center":"Center"+str(j),"Free Slots":str(ftm),"Center img":"https://drive.google.com/file/d/1ArwjMghyjgEQVnoWtKAG_oHnuQRQE30H/view?usp=sharing"
+                    ,"Recovered":str(randint(10,50000)),"Infected":str(randint(50000,8090000)),"Deaths":str(randint(50,8000)),"Vaccinations":str(randint(90000,8090000))
+                 ,"News":"https://www.healthline.com/health-news/how-covid-19-surge-is-related-to-a-black-fungus-outbreak"})
 #,"Test Center":"Number 1","Free Slots":"None","Center img":"LINK","Recovered":"10","infected":"100000"
 
 
